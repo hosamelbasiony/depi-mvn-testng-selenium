@@ -57,9 +57,9 @@ public class TestCasesAutomation {
     }
 
     @Test(priority = 1)
-    void verifyLoginTitle() {
+    void verifyTitle() {
 
-        System.out.println("Running test case verifyLoginTitle ...");
+        System.out.println("Running test case verifyTitle ...");
 
         driver.get(baseUrl);
 
@@ -81,9 +81,9 @@ public class TestCasesAutomation {
     }
 
     @Test(priority = 2)
-    void verifySignupTitle() {
+    void verifyValidSignup() {
 
-        System.out.println("Running test case verifySignupTitle ...");
+        System.out.println("Running test case verifyValidSignup ...");
 
         driver.get(baseUrl + "/register");
 
