@@ -2,6 +2,7 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Sleeper;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,7 +36,11 @@ public class TestCasesAutomation {
         // Setup code here
         System.out.println("Setting up test cases...");
         System.setProperty("webdriver.firefox.driver", driverPath);
-        driver = new FirefoxDriver();
+        
+        FirefoxOptions options=new FirefoxOptions();
+        options.addArguments("--headless");
+
+        driver = new FirefoxDriver(options);
 
         driver.manage().window().maximize();
         System.out.println("Navigated to: " + baseUrl);
