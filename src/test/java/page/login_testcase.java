@@ -2,14 +2,16 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.login;
 
-import java.lang.reflect.Method;
 import java.time.Duration;
 
 public class login_testcase extends Base_test {
@@ -66,5 +68,28 @@ public class login_testcase extends Base_test {
 
             Assert.assertTrue(isLoginSuccessful, "تسجيل الدخول غير ناجح للمستخدم: " + username);
         }
+    }
+
+    public static class Base_test {
+        WebDriver base_driver;
+        @BeforeClass
+        public void beforecless(){
+
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+
+            base_driver=new ChromeDriver();
+            base_driver.get("https://www.saucedemo.com/");
+        }
+
+        @AfterClass
+        public void methodName() {
+            base_driver.quit();
+
+        }
+
+
     }
 }
