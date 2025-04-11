@@ -39,6 +39,8 @@ public class TestCasesAutomation {
         
         FirefoxOptions options=new FirefoxOptions();
         options.addArguments("--headless");
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
 
         driver = new FirefoxDriver(options);
 
