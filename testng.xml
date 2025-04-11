@@ -5,7 +5,7 @@
       <classes>
           <class name="page.TestCasesAutomation"/>
          <class name="page.TestCases"/>
-         <class name="page.login_testcase"/>
+         <class name="page.LoginTestcase"/>
       </classes>
   </test>
 </suite>

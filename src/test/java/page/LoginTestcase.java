@@ -14,7 +14,7 @@ import pages.login;
 
 import java.time.Duration;
 
-public class login_testcase extends Base_test {
+public class LoginTestcase extends Base_test {
     login LP;
 
     // // DataProvider لقراءة بيانات تسجيل الدخول من ملف Excel
@@ -37,7 +37,7 @@ public class login_testcase extends Base_test {
     // }
 
     // حالة الاختبار باستخدام البيانات من DataProvider
-    @Test
+    @Test(priority = 1)
     public void test_login_with_all_users() {
 
         String username = "standard_user";
@@ -47,6 +47,8 @@ public class login_testcase extends Base_test {
 
         // التوجه إلى صفحة تسجيل الدخول
         base_driver.get("https://www.saucedemo.com/");
+        
+        System.out.println("Test case goto https://www.saucedemo.com");
 
         // تسجيل الدخول باستخدام البيانات المقدمة
         LP.setusername(username);
