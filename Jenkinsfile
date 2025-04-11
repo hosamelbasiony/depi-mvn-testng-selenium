@@ -7,6 +7,12 @@ pipeline {
     }
 
     stages {
+       agent {
+            docker {
+                image 'maven:latest'
+                reuseNode true
+            }
+        }
         stage('Build') {
             steps {
                 // git 'https://github.com/hosamelbasiony/depi-mvn-testng-selenium.git'
@@ -14,9 +20,9 @@ pipeline {
                 sh '''
                     echo "testing"
                     mvn --version
-                    mvn test
-                    #mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-                    #mvn test -Dmaven.test.failure.ignore=true -B -V
+                    # mvn test
+                    # mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+                    # mvn test -Dmaven.test.failure.ignore=true -B -V
                 '''
             }
         }
