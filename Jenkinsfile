@@ -7,14 +7,13 @@ pipeline {
     }
 
     stages {
-       agent {
-            docker {
-                // image 'maven:latest'
-                image 'node:22-alpine'
-                reuseNode true
-            }
-        }
         stage('Build') {
+            agent {
+                docker {
+                    image 'maven:latest'
+                    reuseNode true
+                }
+            }
             steps {
                 // git 'https://github.com/hosamelbasiony/depi-mvn-testng-selenium.git'
                 
