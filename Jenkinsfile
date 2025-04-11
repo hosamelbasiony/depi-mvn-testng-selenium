@@ -1,10 +1,6 @@
 pipeline {
     agent any
     
-    // tools {
-    //     maven "3.9.9"
-    // }
-
     stages {
         stage('Build') {
             agent {
@@ -13,14 +9,11 @@ pipeline {
                     reuseNode true
                 }
             }
-            steps {
-                // git 'https://github.com/hosamelbasiony/depi-mvn-testng-selenium.git'
-                
+            steps {                
                 sh '''
-                    echo "testing"
                     mvn --version
                     java -version
-                    mvn test
+                    mvn clean test
                     # mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
                     # mvn test -Dmaven.test.failure.ignore=true -B -V
                 '''

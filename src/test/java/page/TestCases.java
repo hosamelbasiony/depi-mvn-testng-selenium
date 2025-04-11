@@ -16,6 +16,16 @@ public class TestCases {
         System.out.println("Test case 1");
     }
 
+    @Test(priority = 2)
+    public void testCase2() {
+        System.out.println("Test case 2");
+    }
+
+    @Test(priority = 3)
+    public void testCase3() {
+        System.out.println("Test case 3");
+    }
+
     @AfterMethod
     public void tearDown() {
         System.out.println("Test tear down");
