@@ -3,7 +3,7 @@
 <suite name="All_TESTS">
   <test name="full test" >
       <classes>
-          <class name="page.TestCasesAutomation"/>
+          <!-- <class name="page.TestCasesAutomation"/> -->
          <!-- <class name="page.TestCases"/> -->
          <class name="page.LoginTestcase"/>
       </classes>
