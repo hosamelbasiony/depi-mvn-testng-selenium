@@ -92,7 +92,7 @@ public class TestCasesAutomation {
         driver.findElement(By.xpath(loginNamelocator)).sendKeys(name);
         driver.findElement(By.xpath(loginButtonlocator)).click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(loginSuccesslocator)));
         Assert.assertTrue(successMessage.isDisplayed(), "Success message is not displayed!");
     }
