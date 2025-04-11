@@ -80,7 +80,7 @@ public class TestCasesAutomation {
         driver.quit();
     }
 
-    Test(priority = 2)
+    @Test(priority = 2)
     void verifySignupTitle() {
 
         System.out.println("Running test case verifySignupTitle ...");
