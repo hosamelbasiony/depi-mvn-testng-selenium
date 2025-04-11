@@ -19,7 +19,7 @@ import java.time.Instant;
 public class TestCasesAutomation {
     WebDriver driver;
     String baseUrl = "https://todo-testing.tarqim.info";
-    String driverPath = "C:\\Users\\HOSAM\\Desktop\\DSKTOP_LT\\DEPI2-GRADUATION-PROJECT\\chrome-win64\\chrome.exe";
+//    String driverPath = "C:\\Users\\HOSAM\\Desktop\\DSKTOP_LT\\DEPI2-GRADUATION-PROJECT\\chrome-win64\\chrome.exe";
     String loginTitlelocator = "//h1[text()='DEPI-2 TODOS']";
     String loginEmaillocator = "//input[@data-cy='email']";
     String loginPasswordlocator = "//input[@data-cy='password']";
@@ -39,16 +39,16 @@ public class TestCasesAutomation {
 //        System.setProperty("webdriver.firefox.driver", driverPath);
         
         ChromeOptions options=new ChromeOptions();
-//        options.addArguments("--headless");
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
 
         driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();
         System.out.println("Navigated to: " + baseUrl);
         System.out.println("Browser window maximized.");
-        System.out.println("Driver path: " + driverPath);
+//        System.out.println("Driver path: " + driverPath);
         System.out.println("Driver initialized: " + driver);
         System.out.println("Driver class: " + driver.getClass());
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
