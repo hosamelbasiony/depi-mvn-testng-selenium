@@ -14,7 +14,7 @@ import pages.login;
 
 import java.time.Duration;
 
-public class LoginTestcase extends Base_test {
+public class TestcasesLogin extends Base_test {
     login LP;
 
     // // DataProvider لقراءة بيانات تسجيل الدخول من ملف Excel

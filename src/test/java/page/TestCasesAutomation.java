@@ -45,7 +45,7 @@ public class TestCasesAutomation {
         driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();
-        System.out.println("Navigated to: " + baseUrl);
+        System.out.println("TestCasesAutomation => Navigated to: " + baseUrl);
         System.out.println("Browser window maximized.");
 //        System.out.println("Driver path: " + driverPath);
         System.out.println("Driver initialized: " + driver);
