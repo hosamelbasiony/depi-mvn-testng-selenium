@@ -1,4 +1,4 @@
-package pages;
+package page_models;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
