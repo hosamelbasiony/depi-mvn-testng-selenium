@@ -20,7 +20,7 @@ pipeline {
                     echo "testing"
                     mvn --version
                     java -version
-                    # mvn test
+                    mvn test
                     # mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
                     # mvn test -Dmaven.test.failure.ignore=true -B -V
                 '''
