@@ -36,9 +36,9 @@ public class TestCasesAutomation {
     void setup() {
         // Setup code here
         System.out.println("Setting up test cases...");
-//        System.setProperty("webdriver.firefox.driver", driverPath);
+//        System.setProperty("webdriver.chrome.driver", driverPath);
         
-        ChromeOptions options=new ChromeOptions();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
