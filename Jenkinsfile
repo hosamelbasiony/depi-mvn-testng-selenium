@@ -10,6 +10,7 @@ pipeline {
                     reuseNode true
                 }
             }
+
             steps {                
                 sh '''
                     mvn --version
