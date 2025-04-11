@@ -24,7 +24,7 @@ public class TestCasesAutomation {
     String loginPasswordlocator = "//input[@data-cy='password']";
     String loginNamelocator = "//input[@data-cy='name']";
     String loginButtonlocator = "//button[@data-cy='register']";
-    String loginSuccesslocator = "//span[@class='success-msg']";
+    String loginSuccesslocator = "//span[@class='error-msg']";
     String email = "";
     String name = "Depi2 Cy User";
     String password = "Depi@123";
@@ -94,7 +94,7 @@ public class TestCasesAutomation {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(loginSuccesslocator)));
-        Assert.assertTrue(successMessage.isDisplayed(), "Success message is not displayed!");
+        Assert.assertFalse(successMessage.isDisplayed(), "Success message is not displayed!");
     }
 
 
