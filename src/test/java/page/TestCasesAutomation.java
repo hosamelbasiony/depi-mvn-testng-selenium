@@ -2,6 +2,7 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Sleeper;
@@ -11,14 +12,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.time.Instant;
 
 public class TestCasesAutomation {
     WebDriver driver;
     String baseUrl = "https://todo-testing.tarqim.info";
-    String driverPath = "C:\\Users\\HOSAM\\Desktop\\DSKTOP_LT\\DEPI2-GRADUATION-PROJECT\\geckodriver.exe";
+    String driverPath = "C:\\Users\\HOSAM\\Desktop\\DSKTOP_LT\\DEPI2-GRADUATION-PROJECT\\chrome-win64\\chrome.exe";
     String loginTitlelocator = "//h1[text()='DEPI-2 TODOS']";
     String loginEmaillocator = "//input[@data-cy='email']";
     String loginPasswordlocator = "//input[@data-cy='password']";
@@ -35,14 +36,14 @@ public class TestCasesAutomation {
     void setup() {
         // Setup code here
         System.out.println("Setting up test cases...");
-        System.setProperty("webdriver.firefox.driver", driverPath);
+//        System.setProperty("webdriver.firefox.driver", driverPath);
         
-        FirefoxOptions options=new FirefoxOptions();
-        options.addArguments("--headless");
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-dev-shm-usage")
+        ChromeOptions options=new ChromeOptions();
+//        options.addArguments("--headless");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--disable-dev-shm-usage");
 
-        driver = new FirefoxDriver(options);
+        driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();
         System.out.println("Navigated to: " + baseUrl);

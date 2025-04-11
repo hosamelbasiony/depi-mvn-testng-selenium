@@ -5,7 +5,8 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'maven:latest'
+                    // image 'maven:latest'
+                    image 'markhobson/maven-chrome:latest'
                     reuseNode true
                 }
             }
