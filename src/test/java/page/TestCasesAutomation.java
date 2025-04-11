@@ -59,7 +59,7 @@ public class TestCasesAutomation {
     @Test(priority = 1)
     void verifyLoginTitle() {
 
-        System.out.println("Running test case 1...");
+        System.out.println("Running test case verifyLoginTitle ...");
 
         driver.get(baseUrl);
 
@@ -79,6 +79,24 @@ public class TestCasesAutomation {
 
         driver.quit();
     }
+
+    Test(priority = 2)
+    void verifySignupTitle() {
+
+        System.out.println("Running test case verifySignupTitle ...");
+
+        driver.get(baseUrl + "/register");
+
+        driver.findElement(By.xpath(loginEmaillocator)).sendKeys(email);
+        driver.findElement(By.xpath(loginPasswordlocator)).sendKeys(password);
+        driver.findElement(By.xpath(loginNamelocator)).sendKeys(name);
+        driver.findElement(By.xpath(loginButtonlocator)).click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(loginSuccesslocator)));
+        Assert.assertTrue(successMessage.isDisplayed(), "Success message is not displayed!");
+    }
+
 
 //    @AfterMethod
 //    void teardown() {
