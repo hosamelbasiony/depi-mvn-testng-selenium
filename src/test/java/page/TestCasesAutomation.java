@@ -39,9 +39,9 @@ public class TestCasesAutomation {
 //        System.setProperty("webdriver.chrome.driver", driverPath);
         
         ChromeOptions options = new ChromeOptions();
-        // options.addArguments("--headless");
-        // options.addArguments("--no-sandbox");
-        // options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
 
         driver = new ChromeDriver(options);
 

@@ -6,7 +6,7 @@ pipeline {
             agent {
                 docker {
                     // image 'maven:latest'
-                    image 'markhobson/maven-chrome:latest'
+                    image 'markhobson/maven-chrome:jdk-17'
                     reuseNode true
                 }
             }
