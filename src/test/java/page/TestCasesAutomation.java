@@ -77,7 +77,7 @@ public class TestCasesAutomation {
         Assert.assertEquals(loginTitle, loginTitleActual, "Login Title does not match!");
         System.out.println("Login Title does match ...");
 
-        driver.quit();
+        // driver.quit();
     }
 
     @Test(priority = 2)
