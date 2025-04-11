@@ -9,7 +9,8 @@ pipeline {
     stages {
        agent {
             docker {
-                image 'maven:latest'
+                // image 'maven:latest'
+                image 'node:22-alpine'
                 reuseNode true
             }
         }
