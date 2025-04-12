@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All_TESTS">
-  <test name="full test">
+  <test name="E2E tests">
+    <parameter name="BASE_URL" value="https://todo-testing.tarqim.info/"></parameter>
     <classes>
-      <class name="page.TestCasesAutomation" />
-      <class name="page.TestCasesAutomationPlus" />
-      <class name="page.TestCases" />
-      <class name="page.LoginTestcase" />
+      <class name="com.depi2prj.tests.LoginPageTest" />
+      <class name="com.depi2prj.tests.SignupPageTest" />
     </classes>
   </test>
 </suite>

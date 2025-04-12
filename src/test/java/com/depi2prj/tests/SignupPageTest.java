@@ -1,67 +1,63 @@
 package com.depi2prj.tests;
 
-import com.depi2.prj.pages.LoginPage;
+import com.depi2.prj.pages.SignupPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.time.Instant;
 
-public class LoginPageTest extends BaseTest {
-    LoginPage loginPage = new LoginPage();
+public class SignupPageTest extends BaseTest {
+    SignupPage signupPage = new SignupPage();
+
+    private String email = "";
+    private final String name = "Depi2 Cy User";
+    private final String password = "Depi@123";
+
+    @BeforeClass
+    public void verifyTitle() {
+        Instant currentTimestamp = Instant.now();
+        this.email = "hosam" + currentTimestamp.getEpochSecond() + "@gmail.com";
+    }
 
     @Test(priority = 1)
-    public void verifyTitle() {
-        System.out.println("Running test case verifyTitle ...");
-        Assert.assertTrue(loginPage.verifyTitle());
+    public void verifyFailedSignupWithInvalidPassword() {
+
+        signupPage.navigateTo(this.baseUrl + "/register");
+
+        signupPage.waitForSignupPage();
+
+        System.out.println("Running test case verifyFailedSignupWithInvalidPassword ...");
+        signupPage.typeEmail(this.email);
+        signupPage.typePassword("123");
+        signupPage.typeName(this.name);
+        signupPage.clickLoginButton();
+
+        WebDriverWait wait = new WebDriverWait(signupPage.driver, Duration.ofSeconds(5));
+        WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(signupPage.getSignupErrorLocator()));
+
+        Assert.assertTrue(errorMessage.isDisplayed(), "Signup success message is not displayed!");
     }
 
-//    @Test(priority = 2)
-//    public void verifyFailedLoginWithInvalidEmail() {
-//        loginPage.waitForLoginPage();
-//
-//        System.out.println("Running test case verifyFailedLoginWithInvalidEmail ...");
-//        loginPage.typeWrongEmail();
-//        loginPage.typePassword();
-//        loginPage.clickLoginButton();
-//
-//        WebDriverWait wait = new WebDriverWait(loginPage.driver, Duration.ofSeconds(5));
-//        WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(loginPage.getLoginErrorLocator()));
-//
-//        Assert.assertTrue(errorMessage.isDisplayed(), "Login success message is not displayed!");
-//    }
+    @Test(priority = 2)
+    public void verifySuccessfullSignupWithValidData() {
 
-    @Test(priority = 3)
-    public void verifyFailedLoginWithInvalidPassword() {
-        loginPage.waitForLoginPage();
+        signupPage.navigateTo(this.baseUrl + "/register");
 
-        System.out.println("Running test case verifyFailedLoginWithInvalidPassword ...");
-        loginPage.typeEmail();
-        loginPage.typeWrongPassword();
-        loginPage.clickLoginButton();
+        System.out.println("Running test case verifySuccessfullSignupWithValidData ...");
+        signupPage.typeEmail(this.email);
+        signupPage.typePassword(this.password);
+        signupPage.typeName(this.name);
+        signupPage.clickLoginButton();
 
-        WebDriverWait wait = new WebDriverWait(loginPage.driver, Duration.ofSeconds(5));
-        WebElement errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(loginPage.getLoginErrorLocator()));
+        WebDriverWait wait = new WebDriverWait(signupPage.driver, Duration.ofSeconds(5));
+        WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(signupPage.getSignupSuccessLocator()));
 
-        Assert.assertTrue(errorMessage.isDisplayed(), "Login success message is not displayed!");
+        Assert.assertTrue(successMessage.isDisplayed(), "Signup success message is not displayed!");
     }
-
-    @Test(priority = 4)
-    public void verifySuccessfulLogin() {
-        loginPage.waitForLoginPage();
-
-        System.out.println("Running test case verifySuccessfulLogin ...");
-        loginPage.typeEmail();
-//        loginPage.typeName();
-        loginPage.typePassword();
-        loginPage.clickLoginButton();
-
-        WebDriverWait wait = new WebDriverWait(loginPage.driver, Duration.ofSeconds(5));
-        WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(loginPage.getLoginSuccessLocator()));
-
-        Assert.assertTrue(successMessage.isDisplayed(), "Login success message is not displayed!");
-    }
-
 }

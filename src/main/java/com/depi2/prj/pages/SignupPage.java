@@ -1,47 +1,43 @@
 package com.depi2.prj.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
-public class LoginPage extends BasePage {
+public class SignupPage extends BasePage {
 
 
     private String email = "hoss@home.com";
     private String name = "Depi2 Cy User";
     private String password = "ASDasd@123";
 
-    private By loginTitlelocator = By.xpath("//h1[text()='DEPI-2 TODOS']");
+    private By signupTitlelocator = By.xpath("//h1[text()='DEPI-2 TODOS']");
     private By loginEmaillocator = By.xpath("//input[@data-cy='email']");
     private By loginPasswordlocator = By.xpath("//input[@data-cy='password']");
     private By loginNamelocator = By.xpath("//input[@data-cy='name']");
-    private By loginButtonlocator = By.xpath("//button[text()='Login']");
-    private By loginSuccesslocator = By.xpath("//span[contains(@class,'success-msg')]");
-    private By loginErrorLocator = By.xpath("//span[contains(@data-cy,'registration-error')]");
+    private By signupButtonlocator = By.xpath("//button[text()='Register']");
+    private By signupSuccesslocator = By.xpath("//span[contains(@class,'success-msg')]");
+    private By signupErrorLocator = By.xpath("//span[contains(@data-cy,'registration-error')]");
 
     private By loginNameErrorlocator = By.xpath("//span[text()='Name should be min 5 characters..']");
     private By loginEmailErrorlocator = By.xpath("//span[text()='Email is not valid']");
 
-    public LoginPage() {
+    public SignupPage() {
         super();
     }
 
-    public void typeEmail() {
+    public void typeEmail(String email) {
         sendKeys(loginEmaillocator, email);
     }
 
-    public void typeWrongEmail() {
-        sendKeys(loginEmaillocator, "wrongemail");
-    }
-
-    public void typePassword() {
+    public void typePassword(String password) {
         sendKeys(loginPasswordlocator, password);
     }
-    public void typeWrongPassword() {
-        sendKeys(loginPasswordlocator, "wrongpassword");
+
+    public void typeName(String name) {
+        sendKeys(loginNamelocator, name);
     }
 
     public void clickLoginButton() {
-        click(loginButtonlocator);
+        click(signupButtonlocator);
     }
 
     public boolean verifyTitle() {
@@ -54,14 +50,14 @@ public class LoginPage extends BasePage {
         return find(locator).isDisplayed();
     }
 
-    public By getLoginSuccessLocator() {
-        return loginSuccesslocator;
+    public By getSignupSuccessLocator() {
+        return signupSuccesslocator;
     }
-    public By getLoginErrorLocator() {
-        return loginErrorLocator;
+    public By getSignupErrorLocator() {
+        return signupErrorLocator;
     }
 
-    public void waitForLoginPage() {
-        waitForElementToBeVisible(loginTitlelocator);
+    public void waitForSignupPage() {
+        waitForElementToBeVisible(signupTitlelocator);
     }
 }
