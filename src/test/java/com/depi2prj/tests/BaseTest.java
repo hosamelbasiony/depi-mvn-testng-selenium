@@ -6,6 +6,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -27,7 +28,13 @@ public class BaseTest {
 
     @BeforeClass
     public void setup() {
-        driver = new ChromeDriver();
+        
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");     
+        options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1400,800");  
+
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
 
 //        driver.get(baseUrl);
