@@ -2,17 +2,24 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'markhobson/maven-chrome:jdk-17'
-                }
-            }
+        stage('Hello') {
             steps {                
                 sh '''
-                    mvn clean test
+                    echo "Hello"
                 '''
             }
         }
+        // stage('Build') {
+        //     agent {
+        //         docker {
+        //             image 'markhobson/maven-chrome:jdk-17'
+        //         }
+        //     }
+        //     steps {                
+        //         sh '''
+        //             mvn clean test
+        //         '''
+        //     }
+        // }
     }
 }
